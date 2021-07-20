@@ -53,7 +53,7 @@ AGL provides 70% of the starting point for a production project and includes an 
 
 [[./agl_silver_members.png]]
 
-and more than 136 Bronze members
+- 136 Bronze members
 #+ATTR_REVEAL: :frag (appear)
 - 150 member companies
 - 11 Car manufacturing companies
@@ -93,6 +93,7 @@ Weekly Developer Meeting held on Tuesdays
 #+REVEAL_TITLE_SLIDE_BACKGROUND: lights.jpg
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: lights2.jpg
 #+REVEAL_DEFAULT_FRAG_STYLE: grow
+#+REVEAL_EXTRA_OPTIONS: autoSlide:4000, loop:true
 
 #+OPTIONS: num:nil
 #+OPTIONS: toc:nil

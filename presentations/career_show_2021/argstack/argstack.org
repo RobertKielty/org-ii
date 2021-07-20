@@ -71,6 +71,7 @@ The AgStack Foundation technical projects will be part of an overarching umbrell
 #+REVEAL_TRANS_OPTIONS: none|cube|fade|concave|convex|page|slide|zoom
 #+REVEAL_TITLE_SLIDE_BACKGROUND: cow.jpg
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: grass.jpg
+#+REVEAL_EXTRA_OPTIONS: autoSlide:2000, loop:true
 
 #+OPTIONS: num:nil
 #+OPTIONS: toc:nil

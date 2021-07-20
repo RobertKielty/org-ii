@@ -62,6 +62,7 @@ www.lfph.io/calendar/
 #+REVEAL_TRANS_OPTIONS: none|cube|fade|concave|convex|page|slide|zoom
 #+REVEAL_TITLE_SLIDE_BACKGROUND: map70.jpg
 #+REVEAL_DEFAULT_SLIDE_BACKGROUND: virus60.jpg
+#+REVEAL_EXTRA_OPTIONS: autoSlide:6000, loop:true
 
 #+OPTIONS: num:nil
 #+OPTIONS: toc:nil
