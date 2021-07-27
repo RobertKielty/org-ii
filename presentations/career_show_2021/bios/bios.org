@@ -15,8 +15,12 @@ Basic info, need more people
 
 * Duffie Cooley
 
+[[./duffie.png]]
+
 
 * Aaron Crickenberger
+
+[[./aaron.png]]
 
 * Bart Farrel
 
@@ -24,6 +28,8 @@ Basic info, need more people
 
 * Alison Dowdney
 
+
+[[./alison.png]]
 
 * Get involved
 
