@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>The Could Computing People</title>
+<meta name="author" content="ii"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/black.css" id="theme"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="clouds.jpg">
+<h1 class="title">The Could Computing People</h1>
+</section>
+
+<section>
+<section id="slide-orgc70f140" data-background="clouds.jpg">
+<h2 id="orgc70f140">Priyanka Sharma</h2>
+<p>
+ CNCF as General Manager
+“It’s likely that by 2025, two-thirds of enterprises will be prolific [OSS] software producers and over 90% of new apps will be cloud native”
+</p>
+
+
+
+<div class="figure">
+<p><img src="./priyanka.png" alt="priyanka.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org803b048" data-background="clouds.jpg">
+<h2 id="org803b048">Duffie Cooley</h2>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgadb7470" data-background="clouds.jpg">
+<h2 id="orgadb7470">Aaron Crickenberger</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org31a5300" data-background="clouds.jpg">
+<h2 id="org31a5300">Bart Farrel</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org7f1144c" data-background="clouds.jpg">
+<h2 id="org7f1144c">JJ Ashghar</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org5c0f209" data-background="clouds.jpg">
+<h2 id="org5c0f209">Alison Dowdney</h2>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orge49e401" data-background="clouds.jpg">
+<h2 id="orge49e401">Get involved</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/markdown/markdown.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+margin: 0.10,
+minScale: 0.20,
+maxScale: 3.50,
+
+transition: 'convex',
+transitionSpeed: '1',
+autoSlide:6000, loop:true,
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
+},
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealHighlight,  ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'https://cdn.socket.io/socket.io-1.3.5.js', async: true },
+ { src: './reveal.js/plugin/multiplex/master.js', async: true }]
+
+});
+</script>
+</body>
+</html>
