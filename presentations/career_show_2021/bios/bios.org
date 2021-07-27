@@ -1,4 +1,4 @@
-#+TITLE: The Could Computing People
+#+TITLE: The Cloud Computing People
 #+AUTHOR: ii
 #+PROPERTY: header-args:tmate+ :session kubekohn :socket /tmp/kubecon
 
@@ -14,23 +14,31 @@ Basic info, need more people
 [[./priyanka.png]]
 
 * Duffie Cooley
+Field CTO, Isovalent
+
 
 [[./duffie.png]]
 
 
+
 * Aaron Crickenberger
+Staff Test Engineer, Google
+
 
 [[./aaron.png]]
 
-* Bart Farrel
+* Bart Farrell
+CNCF Ambassador
 
 [[./bart.png]]
 
 * JJ Ashghar
+Developer Advocate at IBM
 
 [[./jj.png]]
 
 * Alison Dowdney
+Developer Advocate, Weaveworks
 
 
 [[./alison.png]]
