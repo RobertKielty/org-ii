@@ -15,7 +15,7 @@ Basic info, need more people
 
 * Duffie Cooley
 Field CTO, Isovalent
-
+Proud CNCF Ambassador
 
 [[./duffie.png]]
 
@@ -24,26 +24,47 @@ Field CTO, Isovalent
 * Aaron Crickenberger
 Staff Test Engineer, Google
 
+OSS since 2007, Kubernetes since 2015. SIG Beard cofounder. Moves fast and heals things from Seattle, WA.
+ https://twitter.com/spiffxp
 
 [[./aaron.png]]
 
 * Bart Farrell
-CNCF Ambassador
+CNCF Ambassador & Data on Kubernetes Community Leader
+https://twitter.com/birthmarkbart
 
 [[./bart.png]]
 
 * JJ Ashghar
-Developer Advocate at IBM
+Developer Advocate, IBM
 
 [[./jj.png]]
 
 * Alison Dowdney
 Developer Advocate, Weaveworks
 
+Waikato Alumni who is now SIG Co-Chair of K8s (cloud) Contributor Experience living in London
+ https://twitter.com/alisondowdney
 
 [[./alison.png]]
 
-* Get involved
+
+* Kiran Oliver
+Technical Community Builder, Camunda
+https://twitter.com/kiran_oliver
+
+[[./kiran.png]]
+
+* Eddie Zaneski
+Developer Advocate at AWS
+Eddie is Developer Advocate at AWS and works on the open source Kubernetes project.
+He lives in Denver, CO with his wife and dog.
+When not hacking on random things you’ll most likely find him climbing rocks somewhere.Amazon Developer Advocate
+
+[[./eddie.png]]
+
+* You Too Can Get involved
+
 
 
 * Footnotes :noexport:
