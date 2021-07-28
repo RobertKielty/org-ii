@@ -22,7 +22,6 @@ Proud CNCF Ambassador
 
 
 * Aaron Crickenberger
-Staff Test Engineer, Google
 
 OSS since 2007, Kubernetes since 2015. SIG Beard cofounder. Moves fast and heals things from Seattle, WA.
  https://twitter.com/spiffxp
