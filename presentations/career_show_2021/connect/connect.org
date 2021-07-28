@@ -28,8 +28,7 @@ Basic info, need more poetry
 
 * You Can Connect To Us
 
-
-
+[[./ii.png]]
 
 * Footnotes :noexport:
 ** LOCAL VARS
