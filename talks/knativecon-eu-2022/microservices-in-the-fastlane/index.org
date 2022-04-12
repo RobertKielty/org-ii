@@ -1,0 +1,141 @@
+#+TITLE: Microservices in the fastlane
+#+SUBTITLE: Deploying fast using Knative
+#+AUTHOR: Caleb Woodbine <caleb@ii.coop>
+
+#+begin_notes
+Welcome to Microservices in the fastlane
+
+Introductions
+#+end_notes
+
+* doc notes                                                        :noexport:
+ii @ KnativeCon
+
+CHECK THE TODOs
+
+* About ii
+#+begin_notes
+- based in New Zealand
+- we share through pairing
+- you can find us at ii.nz
+#+end_notes
+
+Technical Folks in New Zealand
+- Focus on Cooperative Coding
+- we share through pairing together
+- [[https://ii.nz][ii.nz]] / [[https://ii.coop][ii.coop]]
+
+* Assumptions
+- understanding of microservices
+- minimal experience with Kubernetes
+
+* Setting the stage
+An organization has adopted microservices and are running them on a public cloud.
+
+The services are currently deployed onto a public cloud's container as a service offering.
+For internal reasons, in this scenario, the services must be migrated into a way of hosting
+that provides more control and visibility over the infrastructure.
+
+* How fast and easy could it be?
+
+* Deploying using Knative
+#+begin_src shell
+kubectl apply -f ./database.yaml
+kn service create frontend --image=cool-coffee-company/frontend
+kn service create inventory --image=cool-coffee-company/inventory
+kn domain create coolcoffee.company --ref frontend
+#+end_src
+
+* Q&A
+#+begin_notes
+Thank you to those who attended the talk live and to those are watched later.
+We hope to hear from you and hope that this talk helped you.
+#+end_notes
+
+* Style :noexport:
+#+begin_src css :tangle ./ii-style.css :comments none
+section#sec-title-slide p {
+  font-size: 1.11em;
+  color: #bfbfbf;
+}
+#+end_src
+
+* LOCAL VARS :noexport:
+ Local Variables:
+ eval: (setenv "MULTIPLEX_URL" (or (getenv "MULTIPLEX_URL") "https://reveal-multiplex.glitch.me"))
+ eval: (set-variable 'org-re-reveal-root (getenv "MULTIPLEX_URL"))
+ eval: (set-variable 'org-re-reveal-multiplex-url (concat (getenv "MULTIPLEX_URL") "/"))
+ eval: (set-variable 'org-re-reveal-multiplex-socketio-url (concat (getenv "MULTIPLEX_URL") "/socket.io/socket.io.js"))
+ End:
+#+REVEAL_MULTIPLEX_SECRET: 16303595814587938032
+#+REVEAL_MULTIPLEX_ID: 1ea00b34ec29b2a6
+#+REVEAL_VERSION: 4
+#+NOREVEAL_DEFAULT_FRAG_STYLE: YY
+#+REVEAL_EXTRA_CSS: ./ii-style.css
+#+NOREVEAL_EXTRA_JS: YY
+#+REVEAL_HLEVEL: 2
+#+REVEAL_MARGIN: 0
+#+REVEAL_WIDTH: 5000
+#+REVEAL_HEIGHT: 800
+#+REVEAL_MAX_SCALE: 0.9
+#+REVEAL_MIN_SCALE: 0.2
+#+REVEAL_PLUGINS: (markdown notes highlight multiplex)
+#+REVEAL_SLIDE_NUMBER: ""
+#+REVEAL_PROGRESS: f
+#+REVEAL_SPEED: 5
+#+REVEAL_THEME: serif
+#+REVEAL_THEME_OPTIONS: beige|black|blood|league|moon|night|serif|simple|sky|solarized|white
+#+REVEAL_TRANS: slide
+#+REVEAL_TRANS_OPTIONS: none|cube|fade|concave|convex|page|slide|zoom
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1>
+#+REVEAL_TITLE_SLIDE: <h3>%s</h3>
+#+REVEAL_TITLE_SLIDE: <p>%a</p>
+
+#+OPTIONS: num:nil
+#+OPTIONS: toc:nil
+#+OPTIONS: mathjax:Y
+#+OPTIONS: reveal_single_file:nil
+#+OPTIONS: reveal_control:t
+#+OPTIONS: reveal_progress:nil
+#+OPTIONS: reveal_history:nil
+#+OPTIONS: reveal_center:t
+#+OPTIONS: reveal_rolling_links:nil
+#+OPTIONS: reveal_keyboard:t
+#+OPTIONS: reveal_overview:t
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+OPTIONS: reveal_fragmentinurl:t
+#+OPTIONS: timestamp:nil
+#+OPTIONS: reveal_title_slide:nil
+
+* Set up :noexport:
+Run reveal-multiplex locally
+#+begin_src tmate :window reveal-multiplex
+podman run -it --rm -p 1948:1948 registry.gitlab.com/ii/nz/reveal-multiplex
+#+end_src
+
+Set env for local reveal-multiplex server
+#+begin_src elisp
+(setenv "MULTIPLEX_URL" "http://localhost:1948")
+(normal-mode)
+#+end_src
+
+Link up this folder to the web
+#+begin_src tmate :window knativecon-eu-2022
+export SHARINGIO_PAIR_EXPOSER_HOSTNAME=knativecon-eu-2022
+echo "Talk available at: http://$SHARINGIO_PAIR_EXPOSER_HOSTNAME.${SHARINGIO_PAIR_BASE_DNS_NAME:-127.0.0.1.sslip.io:8080}"
+go-http-server
+#+end_src
+
+Generate a token
+#+begin_src shell
+curl -s ${MULTIPLEX_URL:-reveal-multiplex.glitch.me}/token | jq .
+#+end_src
+
+#+RESULTS:
+#+begin_example
+{
+  "secret": "16497298315862942442",
+  "socketId": "854aeab6f5c1941d"
+}
+#+end_example
