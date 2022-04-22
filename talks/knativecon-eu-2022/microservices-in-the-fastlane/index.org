@@ -8,6 +8,13 @@ Welcome to Microservices in the fastlane
 Introductions
 #+end_notes
 
+* talk overview :noexport:
+- set the scenario
+- prep for migration
+- the database migration already happened successfully
+- bringing up the new services
+-
+
 * doc notes                                                        :noexport:
 ii @ KnativeCon
 
@@ -26,6 +33,7 @@ Technical Folks in New Zealand
 - [[https://ii.nz][ii.nz]] / [[https://ii.coop][ii.coop]]
 
 * Assumptions
+As application administrators:
 - understanding of microservices
 - minimal experience with Kubernetes
 
@@ -33,16 +41,17 @@ Technical Folks in New Zealand
 An organization has adopted microservices and are running them on a public cloud.
 
 The services are currently deployed onto a public cloud's container as a service offering.
-For internal reasons, in this scenario, the services must be migrated into a way of hosting
+For internal reasons, in this scenario, the services must be migrated over to a way of hosting
 that provides more control and visibility over the infrastructure.
+A cluster has already been made available with Knative and is set up to support the scenario.
 
 * How fast and easy could it be?
 
 * Deploying using Knative
 #+begin_src shell
 kubectl apply -f ./database.yaml
-kn service create frontend --image=cool-coffee-company/frontend
-kn service create inventory --image=cool-coffee-company/inventory
+kn service create frontend --image=gitlab.com/ii/example-kubernetes-serverless-microservice-app/frontend
+kn service create inventory --image=gitlab.com/ii/example-kubernetes-serverless-microservice-app/inventory
 kn domain create coolcoffee.company --ref frontend
 #+end_src
 
@@ -122,7 +131,7 @@ Set env for local reveal-multiplex server
 
 Link up this folder to the web
 #+begin_src tmate :window knativecon-eu-2022
-export SHARINGIO_PAIR_EXPOSER_HOSTNAME=knativecon-eu-2022
+export SHARINGIO_PAIR_EXPOSER_HOSTNAME=knativecon-eu-2022 APP_METRICS_ENABLED=false
 echo "Talk available at: http://$SHARINGIO_PAIR_EXPOSER_HOSTNAME.${SHARINGIO_PAIR_BASE_DNS_NAME:-127.0.0.1.sslip.io:8080}"
 go-http-server
 #+end_src
