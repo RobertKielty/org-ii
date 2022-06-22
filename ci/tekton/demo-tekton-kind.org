@@ -1,0 +1,77 @@
+#+title: Demo Tekton On Kind
+
+* Tekton demo on kind
+** Setup Tekon in a k8s cluster
+So you need to be able to lay your hands on a Kubernetes cluster.
+There are two quick ways to do this using kind *Kubernetes in Docker* or using *minikube*
+I will go ahead with kind here, but of you check the Tekton webiste you can see instructions
+on using minikube
+
+*** Create a cluster and apply the Tekton CRD using kind
+
+#+begin_src shell :session tekton-onkind-demo
+kind create cluster --name tekton
+kubectl cluster-info --context kind-tekton
+kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+#+end_src
+
+*** Wait for the pods to come up
+
+#+begin_src
+kubectl get pods --namespace tekton-pipelines --watch
+#+end_src
+** Create a Task
+
+#+begin_src yaml
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hello
+spec:
+  steps:
+    - name: echo
+      image: alpine
+      script: |
+        #!/bin/sh
+        echo "Hello World"
+#+end_src
+
+
+#+begin_src shell :session tekton-onkind-demo
+kubectl apply --filename hello-world.yaml
+#+end_src
+
+#+begin_src shell :session tekton-onkind-demo
+kubectl apply --filename hello-world-run.yaml
+#+end_src
+
+#+begin_src shell :session tekton-onkind-demo
+kubectl get taskrun hello-task-run
+#+end_src
+
+#+begin_src shell :session tekton-onkind-demo
+kubectl get taskrun hello-task-run --watch
+#+end_src
+
+#+begin_src shell :session tekton-onkind-demo
+kubectl logs --selector=tekton.dev/taskRun=hello-task-run
+#+end_src
+** Install the Tekton Dashboard
+#+begin_src shell
+kubectl apply --filename \
+https://storage.googleapis.com/tekton-releases/dashboard/latest/tekton-dashboard-release.yaml
+#+end_src
+#+begin_src shell
+kubectl get pods --namespace tekton-pipelines
+#+RESULTS:
+| customresourcedefinition.apiextensions.k8s.io/extensions.dashboard.tekton.dev | configured |
+| serviceaccount/tekton-dashboard                                               | unchanged  |
+| role.rbac.authorization.k8s.io/tekton-dashboard-info                          | unchanged  |
+| clusterrole.rbac.authorization.k8s.io/tekton-dashboard-backend                | unchanged  |
+| clusterrole.rbac.authorization.k8s.io/tekton-dashboard-tenant                 | unchanged  |
+| rolebinding.rbac.authorization.k8s.io/tekton-dashboard-info                   | unchanged  |
+| clusterrolebinding.rbac.authorization.k8s.io/tekton-dashboard-backend         | unchanged  |
+| configmap/dashboard-info                                                      | unchanged  |
+| service/tekton-dashboard                                                      | unchanged  |
+| deployment.apps/tekton-dashboard                                              | configured |
+| clusterrolebinding.rbac.authorization.k8s.io/tekton-dashboard-tenant          | unchanged  |

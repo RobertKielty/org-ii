@@ -1,0 +1,184 @@
+* WIP CI Tool choices for CNCF projects
+#+author: Rob Kielty rob@ii.coop
+#+description: Select CI Server review
+
+** Overview
+
+Each project under the pervue of the Cloud Native Computing Foundation needs to
+employ a CI Server to run tests as part of a Continuous Integration Strategy in
+order to reap the benefits of continuously testing and monitoring the quality
+of the massive number of code and non-code contributions made accross all of
+those projects.
+
+When we talk about Continuous Integration we are often focused on the quality
+gates offered via automated tests that excercises and checks contributed code in
+a range of test types described by the Test Pyramid or Test Triangle[fn:1], but
+other quality checks are available, such as static code checks, static security
+checks, bill-of-materials reporting, test code coverage reporting, documentation
+spell checks etc.
+
+For the purposes of this discussion we can consider a Continuous Integration
+server to be a service that provides the ability to run any tool that offers the
+opportunity to check the correctness and quality of any contributor submissions
+to CNCF Projects.
+
+There are a range of CI Servers available to community that offer services to
+run CI Jobs that execute tests, run reports and manage the flow of new features
+and fixes from topic branches created by individual contributors that find their
+way into release branches via a wide range of defined project specific processes.
+
+This paper will provide an overview of three such tools, namely 
+
+ - Prow
+ - Tekton
+ - Github Actions
+ - Gitlab Automation
+
+The paper will discuss the relative merits of each of the named tools and offer
+sample use cases and sample uses of each of the tools accross multiple CNCF
+projects.
+
+It is worth noting that other CI Servers are available outside [fn:2]of the above CI
+servers and they could be considered in the future.
+
+The following six CI Servers, Jenkins, JenkinsX, Ortelius, Screwdriver,
+Spinnaker, Tekton Pipelines are part of the [[https://cd.foundation/][Continuous Delivery Foundation (CDF)]]
+which like the CNCF is part of the Linux Foundation.[fn:3]
+
+** CI Tools
+*** Prow
+**** History
+First created to replace Jenkins on the Kubernetes Project.
+**** Code, License and Documentation
+
+**** Track Record
+***** Prow Instance data
+
+| Prow Instance                                                                                    | Link | Job Count | Running Since |
+|--------------------------------------------------------------------------------------------------+------+-----------+---------------|
+| Kubernetes kubernetes-client, kubernetes-csi, and kubernetes-sigs.                               |      |           |               |
+| OpenShift openshift, openshift-s2i, operator-framework, and some repos in containers and heketi. |      |           |               |
+| Istio                                                                                            |      |           |               |
+| Jetstack                                                                                         |      |           |               |
+| Kyma                                                                                             |      |           |               |
+| Metal³                                                                                           |      |           |               |
+| Prometheus                                                                                       |      |           |               |
+| Caicloud                                                                                         |      |           |               |
+| Kubeflow                                                                                         |      |           |               |
+| Azure AKS Engine                                                                                 |      |           |               |
+| tensorflow/minigo                                                                                |      |           |               |
+| Daisy (Google Compute Image Tools)                                                               |      |           |               |
+| KubeEdge (Kubernetes Native Edge Computing Framework)                                            |      |           |               |
+| Volcano (Kubernetes Native Batch System)                                                         |      |           |               |
+| Loodse                                                                                           |      |           |               |
+| Feast                                                                                            |      |           |               |
+| Falco                                                                                            |      |           |               |
+| TiDB                                                                                             |      |           |               |
+| Amazon EKS Distro and Amazon EKS Anywhere                                                        |      |           |               |
+| KubeSphere                                                                                       |      |           |               |
+| OpenYurt                                                                                         |      |           |               |
+| KubeVirt                                                                                         |      |           |               |
+
+**** Architechture
+Microservices Architecture, runs on Kubernetes.
+***** Components
+**** Pros and Cons
+
+*** Tekton
+**** Arch
+Kubernetes CRD
+**** History
+Started in the Knative Project
+**** Code, License and Documentation
+**** Track Record
+**** Pros and Cons
+**** CNCF Landscape Entry
+| Name                      | Tekton Pipelines                                                                     |
+| Organization              | Continuous Delivery Foundation (CDF)                                                 |
+| Homepage                  | https://tekton.dev/                                                                  |
+| Logo                      | https://landscape.cncf.io/logos/tekton-pipelines.svg                                 |
+| Twitter                   | https://twitter.com/tektoncd                                                         |
+| Crunchbase URL            | https://www.crunchbase.com/organization/continuous-delivery-foundation-cdf           |
+| Market Cap                |                                                                                      |
+| Ticker                    |                                                                                      |
+| Funding                   |                                                                                      |
+| Member                    | false                                                                                |
+| Relation                  | false                                                                                |
+| License                   | Apache License 2.0                                                                   |
+| Headquarters              | San Francisco, California                                                            |
+| Latest Tweet Date         | 2022-06-13 18:03:57                                                                  |
+| Description               | A cloud-native Pipeline resource.                                                    |
+| Crunchbase Description    | A Neutral Home for the Next Generation of Continuous Delivery Collaboration          |
+| Crunchbase Homepage       | https://cd.foundation                                                                |
+| Crunchbase City           | San Francisco                                                                        |
+| Crunchbase Region         | California                                                                           |
+| Crunchbase Country        | United States                                                                        |
+| Crunchbase Twitter        | https://twitter.com/CDeliveryFdn                                                     |
+| Crunchbase Linkedin       |                                                                                      |
+| Crunchbase Ticker         |                                                                                      |
+| Crunchbase Kind           |                                                                                      |
+| Crunchbase Min Employees  | 1                                                                                    |
+| Crunchbase Max Employees  | 10                                                                                   |
+| Category                  | App Definition and Development                                                       |
+| Subcategory               | Continuous Integration & Delivery                                                    |
+| OSS                       | true                                                                                 |
+| Github Repo               | https://github.com/tektoncd/pipeline                                                 |
+| Github Stars              | 7154                                                                                 |
+| Github Description        | A cloud-native Pipeline resource.                                                    |
+| GITHUB Latest Commit Date |                                                                                      |
+| Github Latest Commit Link | https://github.com/tektoncd/pipeline/commit/b6e87ffdb562d24d53c2a99041663867d7469aa0 |
+| Github Release Date       | 2022-06-01 08:44:56                                                                  |
+| Github Release Link       | https://github.com/tektoncd/pipeline/releases                                        |
+| Github Start Commit Date  | 2018-08-29 18:21:56                                                                  |
+| Github Start Commit Link  | https://github.com/tektoncd/pipeline/commit/301b41380e95382a18b391c2165fa3a6a3de93b0 |
+| Github Contributors Count | 264                                                                                  |
+| Github Contributors Link  | https://github.com/tektoncd/pipeline/graphs/contributors                             |
+
+**** Use Cases
+***** Creating and running a task
+#+begin_src sh
+
+#+end_src
+**** References
+[[https://www.youtube.com/watch?v=6oE7jgRuF2o&t=132s][Tekton for Kubernetes Cloud-Native CI/CD explained]]
+[[https://www.youtube.com/watch?v=CnVCgMRE4xI][Tutorial: Hands-On Intro to Cloud-Native CI/CD with Tekton - Jan Kleinert & Joel
+Lord, Red Hat]]
+*** Github Actions
+**** History
+**** Arch
+**** Code, License and Documentation
+**** Track Record
+**** Pros and Cons
+**** Use Cases
+
+** Summary Tables Exec Summary
+*** Project Characteristics
+|                      | Prow                    | Tekton | Github Actions           |
+|----------------------+-------------------------+--------+--------------------------|
+| License              |                         |        |                          |
+| Source Code          |                         |        |                          |
+| Start Date           |                         |        |                          |
+| CNCF Project Status  | No                      | Yes    | No                       |
+| Project dev resoures |                         |        |                          |
+| Runtime              | Up to you how you do HA |        | Availble when Github is. |
+| Documentation        |                         |        |                          |
+| Track record data    |                         |        |                          |
+| Used by              |                         |        |                          |
+
+*** Tool features
+| Features / Use Cases    | Prow | Tekton | Github Actions |
+|-------------------------+------+--------+----------------|
+| CI Job Runner           |      |        |                |
+| CI Abstractions         |      |        |                |
+| - Task Step             |      |        |                |
+| - Pipeline Result       |      |        |                |
+| - Conditional Execution |      |        |                |
+| Job Viewer              |      |        |                |
+| Documentation           |      |        |                |
+| Job Creation Tooling    |      |        |                |
+
+* Footnotes
+
+[fn:3] CNCF Landscape, Continuous Integration and Delivery projects not in the CNCF https://landscape.cncf.io/card-mode?category=continuous-integration-delivery&project=no&organization=continuous-delivery-foundation-cdf&grouping=category
+[fn:2] CNCF Landscape, Continuous Integration and Delivery projects https://landscape.cncf.io/card-mode?category=continuous-integration-delivery&project=no&grouping=category1
+[fn:1] Martin Fowler's Article on the Testi Pyramid  https://martinfowler.com/bliki/TestPyramid.html
